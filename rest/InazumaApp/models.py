@@ -41,6 +41,7 @@ class Objeto(models.Model):
         F = "F", _("Objetos para fichar")
         C = "C", _("Objetos curativos")
         S = "S", _("Supertecnicas")
+        E = "E", _("Equipables")
 
     nombre = models.CharField(max_length=100)
     sprite = models.CharField(max_length=250)

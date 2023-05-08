@@ -3,14 +3,7 @@ from InazumaApp.models import Objeto
 from django.db.models import Q
 
 
-def ObjectsSearch(request):
-    search_object = request.GET.get('search')
-    if search_object is None:
-        print("No existe el objeto")
-
-    else:
-        print(search_object)
-
+def objectsSearch(request):
     search_tipo = request.GET.get('tipo')
     if search_tipo is None:
         print("No existe la tipo de objeto")
@@ -19,14 +12,13 @@ def ObjectsSearch(request):
         print(search_tipo)
 
     # todos los objetos q tienen la busquda en el nombre o descripcion
-    #search_letra = Jugador.objects.filter(Q(nombre__icontains=search_name) | Q(desc__icontains=search_name))
-    #print(search_letra)
+    search_letra = Objeto.objects.filter(tipo__icontains=search_tipo)
+   # print(search_letra)
 
     # meter los datos en un JSON
     j = []
     for p in search_letra:
         print(p)
-        print(p.nombre)
         print(p.id)
         print(p.sprite)
         # crear un diccionario
@@ -39,3 +31,18 @@ def ObjectsSearch(request):
         j.append(e)
 
     return JsonResponse(j, safe=False)
+
+
+def objectById(request, oid):
+
+    object_get = Objeto.objects.get(id=oid)
+
+    return JsonResponse({
+        "nombre": object_get.nombre,
+        "sprite": object_get.sprite,
+        "desc": object_get.desc,
+        "obtencion": object_get.obtencion,
+        "tipo": object_get.tipo
+    })
+
+

@@ -10,14 +10,14 @@ def playersSearch(request):
 
     else:
         print(search_name)
-
-    search_afinidad = request.GET.get('afinidad')
-    if search_afinidad is None:
-        print("No existe la afinidad")
-
-    else:
-        print(search_afinidad)
-
+    """"
+        search_afinidad = request.GET.get('afinidad')
+        if search_afinidad is None:
+            print("No existe la afinidad")
+    
+        else:
+            print(search_afinidad)
+    """
     # todos los jugadores q tienen la busquda en el nombre o descripcion
     search_letra = Jugador.objects.filter(Q(nombre__icontains=search_name) | Q(desc__icontains=search_name))
     print(search_letra)
