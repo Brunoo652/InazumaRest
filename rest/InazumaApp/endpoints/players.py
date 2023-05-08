@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from InazumaApp.models import Jugador
+from InazumaApp.models import Jugador, Stat
 from django.db.models import Q
 
 
@@ -67,3 +67,32 @@ def playersSearch(request):
     print(jugadores_descripciones)
 
     return JsonResponse(j, safe=False)
+
+
+def playersByID(request, pid):
+    players_get = Jugador.objects.get(id=pid)
+    players_stats = Stat.objects.filter(jugador=players_get)
+
+
+    supertecnicas = []
+    # crear un diccionario
+    for p in supertecnicas:
+        e = {
+            "nombre": supertecnicas.get(nombre),
+            "afinidad": supertecnicas.afinidad,
+            "tipo": supertecnicas.tipo
+        }
+        supertecnicas.append(e)
+
+    return JsonResponse({
+        "nombre": players_get.nombre,
+        "sprite": players_get.sprite,
+        "desc": players_get.desc,
+        "afinidad": players_get.afinidad,
+        "sexo": players_get.sexo,
+        "supertecnicas": supertecnicas,
+        "stats": [{
+            "PE": players_stats.get(nombre="PE").valor,
+
+        }]
+    })

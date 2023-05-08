@@ -24,6 +24,7 @@ class Jugador(models.Model):
     afinidad = models.CharField(max_length=1, choices=Afinidad.choices)
 
 
+
 class Temporada(models.Model):
     nombre = models.CharField(max_length=100)
     logo = models.CharField(max_length=250)

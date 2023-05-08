@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from InazumaApp.endpoints import players, objects
-
+# oid = object id || pid = players id
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('players', players.playersSearch),
     path('objects', objects.objectsSearch),
-    path('objects/<int:oid>', objects.objectById)
+    path('objects/<int:oid>', objects.objectById),
+    path('players/<int:pid>', players.playersByID)
 ]
