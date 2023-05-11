@@ -11,6 +11,9 @@ class Afinidad(models.TextChoices):
 
 
 class Jugador(models.Model):
+    #ver en el admin los nombres
+    def __str__(self):
+        return self.nombre
 
     class Sexo(models.TextChoices):
         V = "V", _("Macho")
@@ -36,6 +39,8 @@ class Club(models.Model):
 
 
 class Objeto(models.Model):
+    def __str__(self):
+        return self.nombre
 
     class Tipo(models.TextChoices):
         H = "H", _("Objetos historia")
@@ -72,6 +77,9 @@ class Stat(models.Model):
 
 class Supertecnica(models.Model):
 
+    def __str__(self):
+        return self.nombre, self.afinidad, self.tipo
+
     class Tipo(models.TextChoices):
         B = "B", _("Bloqueo")
         T = "T", _("Tiro")
@@ -90,6 +98,10 @@ class JugadorClubTemporada(models.Model):
 
 
 class JugadorSupertecnica(models.Model):
+
+    #def __str__(self):
+     #   return self.jugador, self.supertecnica
+
     jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     supertecnica = models.ForeignKey(Supertecnica, on_delete=models.CASCADE)
 

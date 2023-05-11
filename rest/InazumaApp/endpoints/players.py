@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from InazumaApp.models import Jugador, Stat
+from InazumaApp.models import Jugador, Stat, JugadorSupertecnica, Supertecnica
 from django.db.models import Q
 
 
@@ -73,16 +73,12 @@ def playersByID(request, pid):
     players_get = Jugador.objects.get(id=pid)
     players_stats = Stat.objects.filter(jugador=players_get)
 
-
-    supertecnicas = []
     # crear un diccionario
-    for p in supertecnicas:
-        e = {
-            "nombre": supertecnicas.get(nombre),
-            "afinidad": supertecnicas.afinidad,
-            "tipo": supertecnicas.tipo
-        }
-        supertecnicas.append(e)
+    supertecnicas = []
+    for i in JugadorSupertecnica.objects.all():
+        if pid == i.id:
+            supertecnicas.append({"nombre": i.supertecnica.nombre, "tipo": i.supertecnica.tipo, "afinidad": i.supertecnica.afinidad })
+           # print(i.supertecnica)
 
     return JsonResponse({
         "nombre": players_get.nombre,
@@ -93,6 +89,14 @@ def playersByID(request, pid):
         "supertecnicas": supertecnicas,
         "stats": [{
             "PE": players_stats.get(nombre="PE").valor,
-
+            "PT": players_stats.get(nombre="PT").valor,
+            "T": players_stats.get(nombre="T").valor,
+            "C": players_stats.get(nombre="C").valor,
+            "d": players_stats.get(nombre="D").valor,
+            "R": players_stats.get(nombre="R").valor,
+            "A": players_stats.get(nombre="A").valor,
+            "V": players_stats.get(nombre="V").valor,
+            "S": players_stats.get(nombre="S").valor,
+            "L": players_stats.get(nombre="L").valor
         }]
     })
