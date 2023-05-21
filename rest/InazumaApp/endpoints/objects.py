@@ -3,6 +3,7 @@ from InazumaApp.models import Objeto
 from django.db.models import Q
 
 
+#objetos por nombre
 def objectsSearch(request):
     search_tipo = request.GET.get('tipo')
     if search_tipo is None:
@@ -33,6 +34,7 @@ def objectsSearch(request):
     return JsonResponse(j, safe=False)
 
 
+#objetos por id
 def objectById(request, oid):
 
     object_get = Objeto.objects.get(id=oid)

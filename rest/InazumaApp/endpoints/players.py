@@ -3,6 +3,7 @@ from InazumaApp.models import Jugador, Stat, JugadorSupertecnica, Supertecnica
 from django.db.models import Q
 
 
+#Jugadores por nombre
 def playersSearch(request):
     search_name = request.GET.get('search')
     if search_name is None:
@@ -38,6 +39,7 @@ def playersSearch(request):
         print(e)
         j.append(e)
 
+    """ EJERCICIOS VARIOS PARA REPASAR
     # todos los jugadores
     all_players = Jugador.objects.all()
     print(all_players)
@@ -68,7 +70,9 @@ def playersSearch(request):
 
     return JsonResponse(j, safe=False)
 
+"""
 
+#Jugadores por id
 def playersByID(request, pid):
     players_get = Jugador.objects.get(id=pid)
     players_stats = Stat.objects.filter(jugador=players_get)

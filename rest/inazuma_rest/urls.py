@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from InazumaApp.endpoints import players, objects
+from InazumaApp.endpoints import players, objects, clubs
 # oid = object id || pid = players id
 
 urlpatterns = [
@@ -23,5 +23,6 @@ urlpatterns = [
     path('players', players.playersSearch),
     path('objects', objects.objectsSearch),
     path('objects/<int:oid>', objects.objectById),
-    path('players/<int:pid>', players.playersByID)
+    path('players/<int:pid>', players.playersByID),
+    path('clubs/<int:cid>', clubs.clubsByID)
 ]

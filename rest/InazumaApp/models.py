@@ -27,13 +27,20 @@ class Jugador(models.Model):
     afinidad = models.CharField(max_length=1, choices=Afinidad.choices)
 
 
-
 class Temporada(models.Model):
+    def __str__(self):
+        return self.nombre
+
     nombre = models.CharField(max_length=100)
     logo = models.CharField(max_length=250)
 
 
 class Club(models.Model):
+
+    #ver en el admin los nombres
+    def __str__(self):
+        return self.nombre
+
     nombre = models.CharField(max_length=100)
     logo = models.CharField(max_length=250)
 
