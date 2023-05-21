@@ -19,7 +19,7 @@ def playersSearch(request):
         else:
             print(search_afinidad)
     """
-    # todos los jugadores q tienen la busquda en el nombre o descripcion
+    # todos los jugadores q tienen la busqueda en el nombre o descripcion
     search_letra = Jugador.objects.filter(Q(nombre__icontains=search_name) | Q(desc__icontains=search_name))
     print(search_letra)
 
@@ -38,6 +38,8 @@ def playersSearch(request):
         }
         print(e)
         j.append(e)
+
+    return JsonResponse(j, safe=False)
 
     """ EJERCICIOS VARIOS PARA REPASAR
     # todos los jugadores
@@ -71,6 +73,7 @@ def playersSearch(request):
     return JsonResponse(j, safe=False)
 
 """
+
 
 #Jugadores por id
 def playersByID(request, pid):

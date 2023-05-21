@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from InazumaApp.endpoints import players, objects, clubs
+from InazumaApp.endpoints import players, objects, clubs, seasons
 # oid = object id || pid = players id
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('players', players.playersSearch),
     path('objects', objects.objectsSearch),
+    path('seasons', seasons.seasonsSearch),
     path('objects/<int:oid>', objects.objectById),
     path('players/<int:pid>', players.playersByID),
-    path('clubs/<int:cid>', clubs.clubsByID)
+    path('clubs/<int:cid>', clubs.clubsByID),
+    path('seasons/<int:sid>', seasons.seasonsByID)
 ]
