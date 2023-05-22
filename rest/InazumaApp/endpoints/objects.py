@@ -46,5 +46,3 @@ def objectById(request, oid):
         "obtencion": object_get.obtencion,
         "tipo": object_get.tipo
     })
-
-

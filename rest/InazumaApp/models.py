@@ -37,7 +37,7 @@ class Temporada(models.Model):
 
 class Club(models.Model):
 
-    #ver en el admin los nombres
+    # ver en el admin los nombres
     def __str__(self):
         return self.nombre
 
@@ -99,6 +99,7 @@ class Supertecnica(models.Model):
 
 
 class JugadorClubTemporada(models.Model):
+
     jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     temporada = models.ForeignKey(Temporada, on_delete=models.CASCADE)
     club = models.ForeignKey(Club, on_delete=models.CASCADE)

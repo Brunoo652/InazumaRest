@@ -39,9 +39,8 @@ def playersSearch(request):
         print(e)
         j.append(e)
 
-    return JsonResponse(j, safe=False)
+    #return JsonResponse(j, safe=False)
 
-    """ EJERCICIOS VARIOS PARA REPASAR
     # todos los jugadores
     all_players = Jugador.objects.all()
     print(all_players)
@@ -72,7 +71,7 @@ def playersSearch(request):
 
     return JsonResponse(j, safe=False)
 
-"""
+
 
 
 #Jugadores por id
