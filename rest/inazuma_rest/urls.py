@@ -23,7 +23,6 @@ urlpatterns = [
     path('players', players.playersSearch),
     path('players/', players.playersSearch),
     path('objects', objects.objectsSearch),
-    path('seasons', seasons.seasonsSearch),
     path('objects/<int:oid>', objects.objectById),
     path('players/<int:pid>', players.playersByID),
     path('clubs/<int:cid>', clubs.clubsByID),

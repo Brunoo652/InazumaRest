@@ -72,8 +72,6 @@ def playersSearch(request):
     return JsonResponse(j, safe=False)
 
 
-
-
 #Jugadores por id
 def playersByID(request, pid):
     players_get = Jugador.objects.get(id=pid)

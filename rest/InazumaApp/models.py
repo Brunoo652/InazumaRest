@@ -108,7 +108,7 @@ class JugadorClubTemporada(models.Model):
 class JugadorSupertecnica(models.Model):
 
     #def __str__(self):
-     #   return self.jugador, self.supertecnica
+    #   return self.jugador, self.supertecnica
 
     jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     supertecnica = models.ForeignKey(Supertecnica, on_delete=models.CASCADE)
