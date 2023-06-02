@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">InazumaWiki</string>
+    <string name="navigation_drawer_open">Abriendo</string>
+    <string name="navigation_drawer_close">Cerrando</string>
+
+    <string name="buscadorJugadorNombre">buscadorJugadorNombre</string>
+    <string name="buscadorObjetosNombre">buscadorObjetosNombre</string>
+    <string name="buscadorJugadorXClub">buscadorJugadorXClub</string>
+    <string name="buscadorObjetoXTipo">buscadorObjetoXTipo</string>
+    <string name="AcercaDe">AcercaDe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

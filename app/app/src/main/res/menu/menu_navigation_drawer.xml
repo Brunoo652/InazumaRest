@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/Jugadores">
+        <item
+            android:id="@+id/buscadorJugadorNombre"
+            android:title="buscadorJugadorNombre" />
+        <item
+            android:id="@+id/buscadorJugadorXClub"
+            android:title="@string/buscadorJugadorXClub" />
+    </group>
+
+    <group
+        android:id="@+id/Objetos"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/buscadorobjetosNombre"
+            android:title="buscadorobjetosNombre" />
+        <item
+            android:id="@+id/buscadorObjetoXTipo"
+            android:title="buscadorObjetoXTipo"/>
+    </group>
+
+    <item android:title="@string/AcercaDe">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/AcercaDe"
+                    android:title="AcercaDe"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>
