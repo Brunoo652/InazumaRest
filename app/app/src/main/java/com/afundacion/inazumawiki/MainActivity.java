@@ -55,16 +55,19 @@ public class MainActivity extends AppCompatActivity
                 fragment = FragmentBuscarJugadoresNombre.newInstance(titleId);
                 break;
             case R.string.buscadorJugadorXClub:
-                fragment = new FragmentBuscarJugadoresXClub();
+                fragment = FragmentBuscarJugadoresXClub.newInstance(titleId);
                 break;
             case R.string.buscadorObjetosNombre:
-                fragment = new FragmentBuscarObjetosNombre();
+                fragment = FragmentBuscarObjetosNombre.newInstance(titleId);
                 break;
             case R.string.buscadorObjetoXTipo:
-                fragment = FragmentOpciones.newInstance(titleId);
+                fragment = FragmentBuscarObjetosXTipo.newInstance(titleId);
                 break;
             case R.string.AcercaDe:
                 fragment = FragmentAcercaDe.newInstance(titleId);
+                break;
+            case R.string.Opciones:
+                fragment = FragmentOpciones.newInstance(titleId);
                 break;
         }
 
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity
 
         return fragment;
     }
+
 
 
     private int getTitle(@NonNull MenuItem menuItem) {
@@ -115,7 +119,5 @@ public class MainActivity extends AppCompatActivity
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 
 }

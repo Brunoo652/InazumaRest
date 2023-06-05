@@ -2,6 +2,7 @@ package com.afundacion.inazumawiki;
 
 import android.os.Bundle;
 
+import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -31,26 +32,15 @@ public class FragmentOpciones extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentOpciones.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentOpciones newInstance(String param1, String param2) {
-        FragmentOpciones fragment = new FragmentOpciones();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    public static Fragment newInstance(int titleId) {
-        return null;
+    public static FragmentOpciones newInstance(@StringRes int textId) {
+        FragmentOpciones frag = new FragmentOpciones();
+
+        Bundle args = new Bundle();
+        args.putInt(TEXT_ID, textId);
+        frag.setArguments(args);
+
+        return frag;
     }
 
     @Override
@@ -65,7 +55,7 @@ public class FragmentOpciones extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View layout = inflater.inflate(R.layout.fragment_buscar_jugadores_nombre, container, false);
+        View layout = inflater.inflate(R.layout.fragment_opciones, container, false);
 
         if (getArguments() != null) {
             String text = getString(getArguments().getInt(TEXT_ID));
