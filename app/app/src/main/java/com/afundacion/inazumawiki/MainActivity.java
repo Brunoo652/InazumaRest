@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(findViewById(R.id.toolbar));
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity
                 return R.string.buscadorObjetoXTipo;
             case R.id.AcercaDe:
                 return R.string.AcercaDe;
+            case R.id.opciones:
+                return  R.string.Opciones;
+
             default:
                 throw new IllegalArgumentException("menu option not implemented!!");
         }

@@ -6,10 +6,10 @@
         android:id="@+id/Jugadores">
         <item
             android:id="@+id/buscadorJugadorNombre"
-            android:title="buscadorJugadorNombre" />
+            android:title="Buscador de jugador por nombre" />
         <item
             android:id="@+id/buscadorJugadorXClub"
-            android:title="@string/buscadorJugadorXClub" />
+            android:title="Buscador de jugador por club" />
     </group>
 
     <group
@@ -17,20 +17,22 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/buscadorobjetosNombre"
-            android:title="buscadorobjetosNombre" />
+            android:title="Buscador de objetos por nombre" />
         <item
             android:id="@+id/buscadorObjetoXTipo"
-            android:title="buscadorObjetoXTipo"/>
+            android:title="Buscador de objetos por tipo"/>
     </group>
 
-    <item android:title="@string/AcercaDe">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/AcercaDe"
-                    android:title="AcercaDe"/>
-            </group>
-        </menu>
-    </item>
+    <group
+        android:id="@+id/otros"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/AcercaDe"
+            android:title="Acerca de"/>
+        <item
+            android:id="@+id/opciones"
+            android:title="Opciones"
+            />
+    </group>
 
 </menu>
