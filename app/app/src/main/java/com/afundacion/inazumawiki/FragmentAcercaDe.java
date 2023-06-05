@@ -46,6 +46,10 @@ public class FragmentAcercaDe extends Fragment {
         return fragment;
     }
 
+    public static Fragment newInstance(int titleId) {
+        return null;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,6 @@ public class FragmentAcercaDe extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_acerca_de2, container, false);
+        return inflater.inflate(R.layout.fragment_acerca_de, container, false);
     }
 }

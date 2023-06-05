@@ -1,11 +1,9 @@
 package com.afundacion.inazumawiki;
 
-
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,8 +12,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+
 import com.google.android.material.navigation.NavigationView;
-import android.view.MenuItem;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,11 +48,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public static Fragment newInstance(int titleId) {
+    public Fragment newInstance(int titleId) {
         Fragment fragment = null;
         switch (titleId) {
             case R.string.buscadorJugadorNombre:
-                fragment = new FragmentBuscarJugadoresNombre();
+                fragment = FragmentBuscarJugadoresNombre.newInstance(titleId);
                 break;
             case R.string.buscadorJugadorXClub:
                 fragment = new FragmentBuscarJugadoresXClub();
@@ -62,12 +61,20 @@ public class MainActivity extends AppCompatActivity
                 fragment = new FragmentBuscarObjetosNombre();
                 break;
             case R.string.buscadorObjetoXTipo:
-                fragment = new FragmentBuscarObjetosXTipo();
+                fragment = FragmentOpciones.newInstance(titleId);
                 break;
             case R.string.AcercaDe:
-                fragment = new FragmentAcercaDe();
+                fragment = FragmentAcercaDe.newInstance(titleId);
                 break;
         }
+
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.home_content, fragment)
+                    .commit();
+        }
+
         return fragment;
     }
 
@@ -95,8 +102,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int titleId = getTitle(item);
-        new Fragment(titleId);
+        Fragment fragment = newInstance(titleId);
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.home_content, fragment)
+                    .commit();
+
+            // Cambiar el título del DrawerLayout
+            setTitle(item.getTitle());
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

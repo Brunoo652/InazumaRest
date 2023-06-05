@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentOpciones extends Fragment {
+
+    private static final String TEXT_ID = "text_id";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,6 +49,10 @@ public class FragmentOpciones extends Fragment {
         return fragment;
     }
 
+    public static Fragment newInstance(int titleId) {
+        return null;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +65,15 @@ public class FragmentOpciones extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_opciones, container, false);
+        View layout = inflater.inflate(R.layout.fragment_buscar_jugadores_nombre, container, false);
+
+        if (getArguments() != null) {
+            String text = getString(getArguments().getInt(TEXT_ID));
+            ((TextView) layout.findViewById(R.id.textPrueba)).setText(text);
+        } else {
+            throw new IllegalArgumentException("Argument " + TEXT_ID + " is mandatory");
+        }
+
+        return layout;
     }
 }
