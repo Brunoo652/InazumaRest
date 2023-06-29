@@ -1,4 +1,4 @@
-package com.afundacion.inazumawiki;
+package com.afundacion.inazumawiki.jugadores;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.afundacion.inazumawiki.R;
 
 public class FragmentBuscarJugadoresXClub extends Fragment {
     private static final String TEXT_ID = "text_id";

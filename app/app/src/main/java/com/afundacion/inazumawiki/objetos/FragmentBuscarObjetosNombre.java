@@ -1,10 +1,9 @@
-package com.afundacion.inazumawiki;
+package com.afundacion.inazumawiki.objetos;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,24 +11,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class FragmentBuscarObjetosXTipo extends Fragment {
+import com.afundacion.inazumawiki.R;
 
+
+public class FragmentBuscarObjetosNombre extends Fragment {
     private static final String TEXT_ID = "text_id";
 
-    public static FragmentBuscarObjetosXTipo newInstance(@StringRes int textId) {
-        FragmentBuscarObjetosXTipo frag = new FragmentBuscarObjetosXTipo();
+
+    public FragmentBuscarObjetosNombre() {
+
+    }
+
+    public static FragmentBuscarObjetosNombre newInstance(int titleId) {
+        FragmentBuscarObjetosNombre frag = new FragmentBuscarObjetosNombre();
 
         Bundle args = new Bundle();
-        args.putInt(TEXT_ID, textId);
+        args.putInt(TEXT_ID, titleId);
         frag.setArguments(args);
 
         return frag;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
     Bundle savedInstanceState) {
-        View layout = inflater.inflate(R.layout.fragment_buscar_objetos_x_tipo, container, false);
+        View layout = inflater.inflate(R.layout.fragment_buscar_objetos_nombre, container, false);
         return layout;
     }
 
@@ -39,7 +46,7 @@ public class FragmentBuscarObjetosXTipo extends Fragment {
 
         if (getArguments() != null) {
             String text = getString(getArguments().getInt(TEXT_ID));
-            TextView textView = view.findViewById(R.id.textPruebaObjetoXTipo);
+            TextView textView = view.findViewById(R.id.textPruebaObjetoNombre);
             textView.setText(text);
         } else {
             throw new IllegalArgumentException("Argument " + TEXT_ID + " is mandatory");

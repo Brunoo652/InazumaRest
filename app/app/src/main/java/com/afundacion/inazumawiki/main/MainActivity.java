@@ -1,4 +1,4 @@
-package com.afundacion.inazumawiki;
+package com.afundacion.inazumawiki.main;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,6 +13,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 
+import com.afundacion.inazumawiki.R;
+import com.afundacion.inazumawiki.jugadores.FragmentBuscarJugadoresNombre;
+import com.afundacion.inazumawiki.jugadores.FragmentBuscarJugadoresXClub;
+import com.afundacion.inazumawiki.objetos.FragmentBuscarObjetosNombre;
+import com.afundacion.inazumawiki.objetos.FragmentBuscarObjetosXTipo;
+import com.afundacion.inazumawiki.otros.FragmentAcercaDe;
+import com.afundacion.inazumawiki.otros.FragmentOpciones;
 import com.google.android.material.navigation.NavigationView;
 
 

@@ -21,10 +21,10 @@ from InazumaApp.endpoints import players, objects, clubs, seasons
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('players', players.playersSearch),
-    path('players/', players.playersSearch),
+    path('players/', players.playersByID),
     path('objects', objects.objectsSearch),
-    path('objects/<int:oid>', objects.objectById),
     path('players/<int:pid>', players.playersByID),
+    path('objects/<int:oid>', objects.objectById),
     path('clubs/<int:cid>', clubs.clubsByID),
     path('seasons/<int:sid>', seasons.seasonsByID)
 ]
